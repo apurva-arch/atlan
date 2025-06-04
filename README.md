@@ -68,7 +68,7 @@ The application follows a layered architecture:
 Start the development server:
 
 ```
-python backend/app.py
+python app.py
 ```
 
 The API will be available at `http://localhost:5000`.
@@ -346,43 +346,40 @@ Common error codes:
 
 ```
 atlan-integration/
-├── backend/
-│   ├── api/
-│   │   ├── __init__.py
-│   │   ├── admin.py
-│   │   ├── assets.py
-│   │   ├── auth.py
-│   │   ├── glossary.py
-│   │   ├── lineage.py
-│   │   └── search.py
-│   ├── services/
-│   │   ├── __init__.py
-│   │   ├── admin_service.py
-│   │   ├── asset_service.py
-│   │   ├── auth_service.py
-│   │   ├── glossary_service.py
-│   │   ├── lineage_service.py
-│   │   └── search_service.py
-│   └── app.py
+├── app.py
+├── admin.py
+├── assets.py
+├── auth.py
+├── glossary.py
+├── lineage.py
+├── search.py
+├── admin_service.py
+├── asset_service.py
+├── auth_service.py
+├── glossary_service.py
+├── lineage_service.py
+├── search_service.py
 ├── docs/
 │   ├── architecture/
 │   └── api-reference/
-├── tests/
-├── .gitignore
+├── Dockerfile
 ├── requirements.txt
 └── README.md
 ```
 
+_Note: a `tests/` directory is not currently included._
+
 ### Adding New Features
 
-1. Create or modify the appropriate service in `backend/services/`
-2. Create or modify the API routes in `backend/api/`
-3. Register any new blueprints in `backend/app.py`
+1. Create or modify the appropriate service module (e.g., `*_service.py`) in the repository root
+2. Create or modify API route modules (e.g., `auth.py`, `assets.py`) in the repository root
+3. Register any new blueprints in `app.py`
 4. Update documentation as needed
 
 ## Testing
 
-Run the test suite:
+This repository currently does not include automated tests. When tests are added,
+run them with:
 
 ```
 pytest
